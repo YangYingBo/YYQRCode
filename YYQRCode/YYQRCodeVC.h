@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  YYQRCodeVC.h
 //  YYQRCode
 //
 //  Created by Loser on 2017/8/31.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface YYQRCodeVC : UIViewController
 
 @end
