@@ -14,6 +14,7 @@
 #import <ImageIO/ImageIO.h>
 //#import "YYQRCodeView.h"
 #import "YYQRCodeManager.h"
+#import "NSString+Category.h"
 
 @interface YYQRCodeVC ()
 
@@ -29,8 +30,16 @@
     
 
     [[YYQRCodeManager sharedYYQRCodeManager] setupScanningARCodeToViewController:self MetadataObjectBlock:^(NSString *metadata) {
-        UIAlertView *aler = [[UIAlertView alloc] initWithTitle:@"扫描结果" message:metadata delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [aler show];
+        if ([metadata isValidUrl]) {
+           [[UIApplication sharedApplication] openURL:[NSURL URLWithString:metadata]];
+        }
+        else
+        {
+            UIAlertView *aler = [[UIAlertView alloc] initWithTitle:@"扫描结果" message:metadata delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [aler show];
+        }
+        
+        
         [self.navigationController popViewControllerAnimated:YES];
     } BrightnessValueBlock:^(float brighnessValue) {
         

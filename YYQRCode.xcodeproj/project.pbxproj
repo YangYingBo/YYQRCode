@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		91598F8D1F592CA900ED23F1 /* YYQRCodeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 91598F8C1F592CA900ED23F1 /* YYQRCodeManager.m */; };
 		91598F8F1F5932CC00ED23F1 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 91598F8E1F5932CC00ED23F1 /* sound.caf */; };
+		91AE4EE31FC4142A00D887AD /* UIButton+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AE4EE21FC4142A00D887AD /* UIButton+Category.m */; };
+		91AE4EE61FC4199000D887AD /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AE4EE51FC4199000D887AD /* NSString+Category.m */; };
 		91FF89131F57F1D000039938 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF89121F57F1D000039938 /* main.m */; };
 		91FF89161F57F1D000039938 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FF89151F57F1D000039938 /* AppDelegate.m */; };
 		91FF891C1F57F1D000039938 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91FF891A1F57F1D000039938 /* Main.storyboard */; };
@@ -41,6 +43,10 @@
 		91598F8B1F592CA900ED23F1 /* YYQRCodeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYQRCodeManager.h; sourceTree = "<group>"; };
 		91598F8C1F592CA900ED23F1 /* YYQRCodeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYQRCodeManager.m; sourceTree = "<group>"; };
 		91598F8E1F5932CC00ED23F1 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
+		91AE4EE11FC4142A00D887AD /* UIButton+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Category.h"; sourceTree = "<group>"; };
+		91AE4EE21FC4142A00D887AD /* UIButton+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Category.m"; sourceTree = "<group>"; };
+		91AE4EE41FC4199000D887AD /* NSString+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Category.h"; sourceTree = "<group>"; };
+		91AE4EE51FC4199000D887AD /* NSString+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Category.m"; sourceTree = "<group>"; };
 		91FF890E1F57F1D000039938 /* YYQRCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YYQRCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91FF89121F57F1D000039938 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		91FF89141F57F1D000039938 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +123,10 @@
 				91FF89481F57FBF100039938 /* ViewController.m */,
 				91598F8B1F592CA900ED23F1 /* YYQRCodeManager.h */,
 				91598F8C1F592CA900ED23F1 /* YYQRCodeManager.m */,
+				91AE4EE11FC4142A00D887AD /* UIButton+Category.h */,
+				91AE4EE21FC4142A00D887AD /* UIButton+Category.m */,
+				91AE4EE41FC4199000D887AD /* NSString+Category.h */,
+				91AE4EE51FC4199000D887AD /* NSString+Category.m */,
 				91FF891A1F57F1D000039938 /* Main.storyboard */,
 				91FF891D1F57F1D000039938 /* Assets.xcassets */,
 				91FF891F1F57F1D000039938 /* LaunchScreen.storyboard */,
@@ -220,8 +230,8 @@
 				TargetAttributes = {
 					91FF890D1F57F1D000039938 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 7LP2459THK;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = 5BAR54BY6N;
+						ProvisioningStyle = Manual;
 					};
 					91FF89261F57F1D000039938 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -290,9 +300,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91AE4EE61FC4199000D887AD /* NSString+Category.m in Sources */,
 				91FF89461F57F20200039938 /* YYQRCodeVC.m in Sources */,
 				91FF89161F57F1D000039938 /* AppDelegate.m in Sources */,
 				91598F8D1F592CA900ED23F1 /* YYQRCodeManager.m in Sources */,
+				91AE4EE31FC4142A00D887AD /* UIButton+Category.m in Sources */,
 				91FF89491F57FBF100039938 /* ViewController.m in Sources */,
 				91FF89131F57F1D000039938 /* main.m in Sources */,
 			);
@@ -441,12 +453,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7LP2459THK;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5BAR54BY6N;
 				INFOPLIST_FILE = YYQRCode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = heXinDa.YYQRCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.QRCodeText.QR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ab442f4f-25b5-4912-9b54-8e8294f8d5c4";
+				PROVISIONING_PROFILE_SPECIFIER = QRCodeText;
 			};
 			name = Debug;
 		};
@@ -454,12 +469,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7LP2459THK;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 5BAR54BY6N;
 				INFOPLIST_FILE = YYQRCode/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = heXinDa.YYQRCode;
+				PRODUCT_BUNDLE_IDENTIFIER = com.QRCodeText.QR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ab442f4f-25b5-4912-9b54-8e8294f8d5c4";
+				PROVISIONING_PROFILE_SPECIFIER = QRCodeText;
 			};
 			name = Release;
 		};

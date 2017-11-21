@@ -42,7 +42,7 @@
 @end
 
 
-/////////////////////////////////////////////////////////我是分割线///////////////////////////////////////////////////
+//////////////////////////////////////我是分割线 扫描二维码Viwe/////////////////////////////////////////
 @interface YYQRCodeView ()
 @property (nonatomic,strong) UIImageView *scanningLine;
 @property (nonatomic,strong) UILabel *promptLabel;
@@ -306,7 +306,7 @@
 
 @end
 
-//////////////////////////////////////////////我是分割线//////////////////////////////////////////////////////////
+//////////////////////////////////////////////我是分割线 扫面二维码//////////////////////////////////////////////
 @interface YYQRCodeManager ()<AVCaptureMetadataOutputObjectsDelegate,AVCaptureVideoDataOutputSampleBufferDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic,copy) void (^metadataObjectBlock) (NSString *metadata);
 @property (nonatomic,copy) void (^brightnessValueBlock) (float brigness);
@@ -516,7 +516,7 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData){
 }
 
 
-/**////////////////////////////////////////我是分割线/////////////////////////////////////////////////////////////////*/
+/**///////////////////////////////////我是分割线  从相册里面识别二维码/////////////////////////////////////////////////*/
 
 - (void)getPhontolQRCodeFromAlbumWithCurrentController:(__weak UIViewController *)vc didFinishPickingQRCodeMediaBlock:(void(^)(NSString *code))block
 {
@@ -566,7 +566,11 @@ void soundCompleteCallback(SystemSoundID soundID, void *clientData){
 #pragma UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo NS_DEPRECATED_IOS(2_0, 3_0)
 {
-    
+    [self.weakVC dismissViewControllerAnimated:YES completion:^{
+        if (self.didFinishPickingQRCodeMedia) {
+            self.didFinishPickingQRCodeMedia(@"返回");
+        }
+    }];
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {

@@ -10,6 +10,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "YYQRCodeVC.h"
 #import "YYQRCodeManager.h"
+#import "UIButton+Category.h"
+#import "NSString+Category.h"
 
 @interface ViewController ()
 
@@ -25,23 +27,26 @@
     
     
     UIButton *button =[UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(100, 100, 100, 50);
+    button.frame = CGRectMake(100, 100, 100, 100);
     [button setTitle:@"扫面二维码" forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button setImage:[UIImage imageNamed:@"扫一扫"] forState:UIControlStateNormal];
     [self.view addSubview:button];
     [button addTarget:self action:@selector(saoMiaoQRCode) forControlEvents:UIControlEventTouchUpInside];
     self.view.backgroundColor = [UIColor whiteColor];
+    [button layoutButtonWithEdgeInsetsStyle:LOSERButtonEdgeInsetsStyleTop imageTitleSpace:10];
     
-    
+//    button.center = self.view.center;
     
     UIButton *button1 =[UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame = CGRectMake(100, 180, 100, 50);
+    button1.frame = CGRectMake(100, 280, 100, 100);
     [button1 setTitle:@"识别二维码" forState:UIControlStateNormal];
     [button1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button1 setImage:[UIImage imageNamed:@"识别二维码"] forState:UIControlStateNormal];
     [self.view addSubview:button1];
     [button1 addTarget:self action:@selector(shiBeiQRCode) forControlEvents:UIControlEventTouchUpInside];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    [button1 layoutButtonWithEdgeInsetsStyle:LOSERButtonEdgeInsetsStyleTop imageTitleSpace:10];
     NSLog(@"%f  %f",self.view.frame.size.height,[UIScreen mainScreen].bounds.size.height);
 }
 
@@ -49,8 +54,16 @@
 {
     [[YYQRCodeManager sharedYYQRCodeManager] getPhontolQRCodeFromAlbumWithCurrentController:self didFinishPickingQRCodeMediaBlock:^(NSString *code) {
         NSLog(@"%@",code);
-        UIAlertView *aler = [[UIAlertView alloc] initWithTitle:@"从图片获取数据" message:code delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [aler show];
+        if ([code isValidUrl]) {
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:code]];
+        }
+        else
+        {
+            UIAlertView *aler = [[UIAlertView alloc] initWithTitle:@"从图片获取数据" message:code delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            [aler show];
+        }
+        
+        
     }];
 }
 
@@ -105,6 +118,9 @@
         [alertC addAction:alertA];
         [self presentViewController:alertC animated:YES completion:nil];
     }
+    
+    
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
